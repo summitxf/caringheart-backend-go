@@ -52,6 +52,8 @@ func (service HeartService) List(duration int) (result []bson.M, err error) {
 			},
 			"_id": 0,
 		}},
+		//{$sort: {date: -1}}
+		bson.M{"$sort": bson.M{"date": -1}},
 		// {$group: {_id: {date: '$groupdate'}, groupdate: {$max: '$date'}, listdata: {$push: '$info'}}},
 		bson.M{"$group": bson.M{
 			"_id":       bson.M{"date": "$groupdate"},

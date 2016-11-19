@@ -31,4 +31,8 @@ func registerAPI() {
 	caringheart.Delete("/heart", heart.Delete)
 	caringheart.Post("/heart", heart.Save)
 
+	water := new(api.WaterAPI)
+	caringheart.Get("/water/:duration", water.List)
+	caringheart.Delete("/water", water.Delete)
+	caringheart.Post("/water", water.Save)
 }
