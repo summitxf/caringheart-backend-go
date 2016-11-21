@@ -26,6 +26,9 @@ func registerAPI() {
 
 	caringheart := iris.Party("/caringheart-backend")
 
+	auth := new(api.AuthAPI)
+	caringheart.Post("/auth/login", auth.Login)
+
 	heart := new(api.HeartAPI)
 	caringheart.Get("/heart/:duration", heart.List)
 	caringheart.Delete("/heart", heart.Delete)
